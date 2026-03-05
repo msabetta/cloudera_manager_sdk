@@ -1,0 +1,42 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Cloudera Manager API",
+    "version": "v54"
+  },
+  "servers": [
+    { "url": "https://cloudera-manager.example.com:7183/api/v54" }
+  ],
+  "paths": {
+    "/clusters": {
+      "get": {
+        "summary": "Elenca tutti i cluster",
+        "responses": {
+          "200": {
+            "description": "Lista dei cluster"
+          }
+        }
+      }
+    },
+    "/clusters/{clusterName}/services/{serviceName}/commands/restart": {
+      "post": {
+        "summary": "Riavvia un servizio",
+        "parameters": [
+          {
+            "name": "clusterName",
+            "in": "path",
+            "required": true
+          },
+          {
+            "name": "serviceName",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": { "description": "Risultato del restart" }
+        }
+      }
+    }
+  }
+}
